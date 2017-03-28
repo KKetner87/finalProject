@@ -1,14 +1,14 @@
-/* Empty. Add your own CSS if you like */
 
-/*Splash Screen*/
+
+/*Home Tab*/
 .scroll h1 {
   font-family: 'Berkshire Swash', cursive;
   font-size: 70px;
 }
 
-.scroll p {
+.scroll h3 {
   font-family: 'Rokkitt', serif;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .runner {
@@ -16,6 +16,19 @@
   height: 200px;
 }
 
+.bolded{
+  font-family: 'Rokkitt', serif;
+  font-size: 18px;
+}
+
+.homeContent {
+  margin: 20px;
+}
 
 
-/**/
+/*Account Tab*/
+
+.accountForm {
+  margin: 20px;
+  margin-bottom:20px;
+}

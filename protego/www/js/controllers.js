@@ -20,7 +20,7 @@ angular.module('starter.controllers', ['ionic.native' ,'ngMap'])
 $cordovaGeolocation.getCurrentPosition()
 .then(function(resp){
     $scope.geoData = resp;
-      $scope.format = 'M/d/yy h:mm:ss a';
+    $scope.format = 'M/d/yy h:mm:ss a';
  })
 
 

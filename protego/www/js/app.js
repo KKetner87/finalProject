@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/panic',
       views: {
         'tab-panic': {
-          templateUrl: 'templates/tabs-panic.html',
+          templateUrl: 'templates/tab-panic.html',
           controller: 'PanicCtrl'
         }
       }
