@@ -1,0 +1,69 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+  <!-- Home Tab -->
+  <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-ios-home-outline" href="#/tab/home">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="Account" icon-off="ion-ios-person-outline" icon-on="ion-ios-person-outline" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Nav Tab -->
+  <ion-tab title="Map" icon-off="ion-map" icon-on="ion-map" href="#/tab/nav">
+    <ion-nav-view name="tab-nav"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Alert Tab -->
+  <ion-tab title="Panic" icon-off="ion-android-alert" icon-on="ion-android-alert" href="#/tab/panic">
+    <ion-nav-view name="tab-panic"></ion-nav-view>
+  </ion-tab>
+
+
+
+
+
+
+
+
+
+
+</ion-tabs>
+
+
+<!--
+@Component({
+  template: `
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Tabs</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content></ion-content>
+  `
+})
+class TabsTextContentPage {
+  constructor() {}
+}
+
+@Component({
+  template: `
+  <ion-tabs>
+    <ion-tab tabIcon="water" tabTitle="Water" [root]="tab1"></ion-tab>
+    <ion-tab tabIcon="leaf" tabTitle="Life" [root]="tab2"></ion-tab>
+    <ion-tab tabIcon="flame" tabTitle="Fire" [root]="tab3"></ion-tab>
+    <ion-tab tabIcon="magnet" tabTitle="Force" [root]="tab4"></ion-tab>
+  </ion-tabs>`
+})
+export class TabsTextPage {
+  constructor() {
+    this.tab1 = TabsTextContentPage;
+    this.tab2 = TabsTextContentPage;
+    ...
+  }
+} -->

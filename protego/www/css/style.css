@@ -1,0 +1,21 @@
+/* Empty. Add your own CSS if you like */
+
+/*Splash Screen*/
+.scroll h1 {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 70px;
+}
+
+.scroll p {
+  font-family: 'Rokkitt', serif;
+  font-size: 20px;
+}
+
+.runner {
+  width: 300px;
+  height: 200px;
+}
+
+
+
+/**/
