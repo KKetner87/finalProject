@@ -1,6 +1,11 @@
+/*Tab Styling*/
 
+.ion-android-alert {
+  color: red;
+}
 
 /*Home Tab*/
+
 .scroll h1 {
   font-family: 'Berkshire Swash', cursive;
   font-size: 70px;
@@ -15,6 +20,7 @@
   width: 300px;
   height: 200px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .bolded{
@@ -29,6 +35,7 @@
 
 /*Account Tab*/
 
+
 .accountForm {
   margin: 20px;
   margin-bottom:10px;
@@ -42,5 +49,5 @@
 
 .profileGreet {
   font-family: 'Berkshire Swash', cursive;
-  font-size: 20px;
+  font-size: 30px;
 }

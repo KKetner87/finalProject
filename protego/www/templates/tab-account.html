@@ -2,29 +2,11 @@
   <ion-content>
 
 <!-- Log-in screen  -->
-<div class="accountForm" ng-hide="user">
-    <p class="text-center"><b class="bolded"> Sign In to Your Account: </b></p>
-
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="text" placeholder="Username" ng-model ="data.username">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Password" ng-model ="data.password">
-      </label>
-    </div>
-   <br>
-  <button class="button button-block button-outline button-energized" ng-click="login()">
-  <b class="bolded">
-    Login Now
-  </b>
-  </button>
-</div>
-<br>
 
 <div class="accountForm" ng-hide="user">
+  <h3 class=" text-center profileGreet">You Deserve to Feel Safe</h3>
   <br>
-    <p class="text-center"><b class="bolded"> New to Protego? Let's Create Your Account!</b></p>
+    <p class="profileGreet text-center"><b class="bolded"> New to Protego? Let's Create Your Account!:</b></p>
 
     <div class="list list-inset">
       <label class="item item-input">
@@ -41,7 +23,8 @@
       </label>
     </div>
     <br>
-    <button class="button button-block button-outline button-energized" ng-click="register()">
+    <button class="button button-block  button-energized" ng-click="register()">
+
     <b class="bolded">
       Create My Account
     </b>
@@ -50,25 +33,53 @@
 
 </div>
 
+<div class="accountForm" ng-hide="user">
+ <br>
+    <p class="text-center"><b class="bolded"> Already a Member? Sign In Here: </b></p>
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Username" ng-model ="data.username">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Password" ng-model ="data.password">
+      </label>
+    </div>
+   <br>
+  <button class="button button-block button-energized" ng-click="login()">
+  <b class="bolded">
+    Login Now
+  </b>
+  </button>
+</div>
+<br>
+
 
 
 <!-- user profile after log-in  -->
 
-<div class="profilePage">
+<div ng-show="user" class="profilePage" >
 
 <ion-card>
-  <img class="img-circle" src="img/nin-live.png"/>
+
+<p class=" text-center profileGreet">  She Who is Brave is Free </p>
+<br>
+  <img  ng-src="{{imgData}}" class="img-circle"/>
+  <button class="btn btn-default btn-xs" ng-click="clickIt()">Add Your Profile Picture</button>
+
   <ion-card-content>
-    <ion-card-title>
-  <p class="profileGreet"> Welcome Back {{user.firstname}} </p>
-      </ion-card-title>
+
     <p><b class="bolded"> First Name:</b>  {{user.firstname}} </p>
     <p><b class="bolded"> Last Name:</b>  {{user.lastname}} </p>
     <p><b class="bolded"> Username:</b> {{user.username}} </p>
 
   <div>
-    <p></p>
+    <p><b class="bolded">My Contacts:</b></p>
+    <br>
+
   </div>
+
+  <button ng-click="logout()">Logout</button>
 
 
   </ion-card-content>

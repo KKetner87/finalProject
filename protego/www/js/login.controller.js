@@ -32,4 +32,11 @@ angular.module('starter.controllers')
       $scope.user = response.data;
     })
   }
+
+$scope.logout = function (){
+  $scope.user = null;
+}
+
+
+
 })
