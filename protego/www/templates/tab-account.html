@@ -1,12 +1,12 @@
 <ion-view >
   <ion-content>
 
-<!-- Log-in screen  -->
+<!-- User Log-in screen  -->
 
 <div class="accountForm" ng-hide="user">
   <h3 class=" text-center profileGreet">You Deserve to Feel Safe</h3>
   <br>
-    <p class="profileGreet text-center"><b class="bolded"> New to Protego? Let's Create Your Account!:</b></p>
+    <p class="profileGreet text-center"><b class="bolded"> New to Protego? Let's Create Your Account!</b></p>
 
     <div class="list list-inset">
       <label class="item item-input">
@@ -63,22 +63,70 @@
 <ion-card>
 
 <p class=" text-center profileGreet">  She Who is Brave is Free </p>
-<br>
+<hr>
+<!-- <br>
   <img  ng-src="{{imgData}}" class="img-circle"/>
   <button class="btn btn-default btn-xs" ng-click="clickIt()">Add Your Profile Picture</button>
+  <br> -->
 
   <ion-card-content>
-
+  <!-- user personal information -->
+<h5 class="sectionHeader">Personal Information:</h5>
+<br>
     <p><b class="bolded"> First Name:</b>  {{user.firstname}} </p>
     <p><b class="bolded"> Last Name:</b>  {{user.lastname}} </p>
     <p><b class="bolded"> Username:</b> {{user.username}} </p>
 
-  <div>
-    <p><b class="bolded">My Contacts:</b></p>
-    <br>
+<hr>
+<!-- user fitness information -->
 
-  </div>
+<h5 class="sectionHeader">Track Your Fitness:</h5>
+<br>
+<p><b class="bolded">Daily Distance:</b></p>
+<p>You have taken {{stepcounter.getCountStep}} steps today!</p>
 
+<hr>
+
+
+
+<!-- user emergency contacts info  -->
+
+<h5 class="sectionHeader">Emergency Contacts:</h5>
+<br>
+
+   <div class="list list-inset">
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 1 Name" >
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 1 Number">
+     </label>
+     <hr>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 2 Name" >
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 2 Number">
+     </label>
+     <hr>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 3 Name" >
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 3 Number">
+     </label>
+     <hr>
+   </div>
+
+
+
+
+
+
+
+<!-- user log out or save changes -->
+
+  <button>Save Changes</button>
   <button ng-click="logout()">Logout</button>
 
 

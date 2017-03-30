@@ -7,11 +7,12 @@ angular.module('starter.controllers')
 
     $http({
       method: 'POST',
-      url: "http://localhost:3000/login",
+      url: "http://10.25.15.46:3000/login",
       data: {
         username: $scope.data.username,
         password: $scope.data.password,
       }
+
     }).then (function(response){
       $scope.user = response.data;
     })
@@ -21,7 +22,7 @@ angular.module('starter.controllers')
 
     $http({
       method: 'POST',
-      url: "http://localhost:3000/register",
+      url: "http://10.25.15.46:3000/register",
       data: {
         username: $scope.data.newusername,
         password: $scope.data.newpassword,

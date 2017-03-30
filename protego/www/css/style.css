@@ -50,4 +50,12 @@
 .profileGreet {
   font-family: 'Berkshire Swash', cursive;
   font-size: 30px;
+  margin-bottom: 50px;
 }
+
+.sectionHeader{
+  font-family: 'Rokkitt', serif;
+  font-size: 22px;
+}
+
+/*Nav Tab*/
