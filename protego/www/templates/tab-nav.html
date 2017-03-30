@@ -1,11 +1,11 @@
 <ion-view>
   <ion-content>
-<ng-map center="{{geoData.coords.latitude}}, {{geoData.coords.longitude}}" style ="height: 400px">
-</ng-map>
+      <div id="map" style ="height: 400px" ng-init="makeMap()" ng-click="makeMarker()">
+      </div>
+
 <br>
 
-<ion-toggle ng-toggle="stepcounter.start()">Enable Tracking</ion-toggle>
-
+<ion-toggle ng-model="tracking" ng-change="trackToggle()">Enable Tracking</ion-toggle>
 
   </ion-content>
 </ion-view>

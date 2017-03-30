@@ -3,11 +3,14 @@ angular.module('starter.controllers')
 .controller('loginCtrl', function ($scope, $http, $state) {
   $scope.data = {};
 
+  $scope.user = JSON.parse(localStorage.getItem('user'));
+
   $scope.login = function () {
+
 
     $http({
       method: 'POST',
-      url: "http://10.25.15.46:3000/login",
+      url: "http://10.25.15.49:3000/login",
       data: {
         username: $scope.data.username,
         password: $scope.data.password,
@@ -15,14 +18,16 @@ angular.module('starter.controllers')
 
     }).then (function(response){
       $scope.user = response.data;
+      localStorage.setItem('user', JSON.stringify(response.data))
     })
   }
+
 
   $scope.register = function () {
 
     $http({
       method: 'POST',
-      url: "http://10.25.15.46:3000/register",
+      url: "http://10.25.15.49:3000/register",
       data: {
         username: $scope.data.newusername,
         password: $scope.data.newpassword,
@@ -31,11 +36,13 @@ angular.module('starter.controllers')
       }
     }).then (function(response){
       $scope.user = response.data;
+      localStorage.setItem('user', JSON.stringify(response.data))
     })
   }
 
 $scope.logout = function (){
   $scope.user = null;
+  localStorage.removeItem('user')
 }
 
 

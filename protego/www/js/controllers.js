@@ -3,59 +3,123 @@ angular.module('starter.controllers', ['ionic.native' ,'ngMap'])
 
 
 .controller('HomeCtrl', function($scope, $cordovaGeolocation, $interval) {
-  // document.addEventListener("deviceready", function () {
-  //   console.log('!!')
-  // })
-  $cordovaGeolocation.getCurrentPosition()
-  .then(function(resp){
-    $scope.geoData = resp;
-    $scope.format = 'M/d/yy h:mm:ss a';
-  })
 
+
+$scope.polyLine =[];
+
+
+//cordova gps location
+$scope.onSuccess = function(location) {
+  $scope.polyLine.push(location.latLng)
+  console.log($scope.polyLine);
+
+  $scope.msg = ["Current your location:\n",
+    "latitude:" + location.latLng.lat,
+    "longitude:" + location.latLng.lng,
+    "speed:" + location.speed,
+    "time:" + location.time].join("\n");
+
+    $scope.map.addPolyline({
+        points: $scope.polyLine,
+        'color' : '#AA00FF',
+        'width': 10,
+        'geodesic': true
+      });
+
+//my marker code
+    // $scope.makeMarker = function(){
+    //   console.log('marker');
+    //   $scope.map.addMarker({
+    //     position : {lat : 40, lng : -105}
+    //   })
+    // }
+
+// cordova map plugin marker code
+  // $scope.map.addMarker({
+  //   'position': location.latLng,
+  //   'title': $scope.msg
+  // }, function(marker) {
+  //   marker.showInfoWindow();
+  // });
+
+
+
+
+  $scope.map.animateCamera({
+    target:location.latLng,
+    zoom: 17,
+    tilt: 60,
+    // bearing: 140,
+    duration: 5000
+  })
+}
+
+
+
+
+// step-counter
   document.addEventListener('deviceready', function () {
-    var success = function (message) {
-      console.log(message)
+    console.log('Device is ready!', document.getElementById('map'));
+    // setTimeout(function(){
+    if(document.getElementById('map')){
+    $scope.map = plugin.google.maps.Map.getMap(document.getElementById('map'));
+    $scope.map.addEventListener(plugin.google.maps.event.MAP_READY, function(){
+      console.log('MAS IS RDY');
+    })
+
+  }
+
+  // }, 100)
+    // map for map tab
+      // $cordovaGeolocation.getCurrentPosition()
+      // .then(function(resp){
+      //   $scope.geoData = resp;
+      //   console.log(resp.coords.latitude);
+      //
+      // }, function(err){
+      //   console.log(err);
+      // })
+
+
+    $scope.stepcounter = stepcounter;
+    $scope.stepSuccess = function(data) {
+      console.log('STEP!', data);
     }
 
-    var failure = function () {
-      console.log("Error calling CordovaStepCounter Plugin! :(");
-    }
+    $scope.$on('$ionicView.enter', function(){
+      $scope.$apply(function(){
 
-    // Start the step counter
-    // startingOffset will be added to the total steps counted in this session.
-    // ie. say you have already recorded 150 steps for a certain activity, then
-    // the step counter records 50. The getStepCount method will then return 200.
-    var startingOffset = 0;
-    stepcounter.start(startingOffset, success, failure);
 
-    // Stop the step counter
-    stepcounter.stop(success, failure);
+        $scope.stepcounter.getStepCount(function(steps){
+          $scope.trackHistory = steps;
+        })
+        $scope.stepcounter.getTodayStepCount(function(steps){
+          $scope.history = steps;
+        })
+      })
+    })
 
-    // Get the amount of steps for today (or -1 if it no data given)
-    stepcounter.getTodayStepCount(success, failure);
+// step-counter toggle feature
+$scope.trackToggle = function(){
+  $scope.tracking = !$scope.tracking
 
-    // Get the amount of steps since the start command has been called
-    $scope.stepcounter.getStepCount(success, failure);
+  $scope.stepcounter.getTodayStepCount($scope.stepSuccess)
+  $scope.stepcounter.getStepCount($scope.stepSuccess)
+  if($scope.tracking){
+    // set interval
+    $scope.stepcounter.start(0, $scope.stepSuccess, function(){console.log('start err');})
+  }
+  else{
+    // clear interval
+    $scope.stepcounter.stop($scope.stepSuccess, function(){console.log('stop err');})
 
-    // Returns true/false if Android device is running >API level 19 && has the step counter API available
-    stepcounter.deviceCanCountSteps(success, failure);
+  }
+  }
 
-    // Get the step history (JavaScript object)
-    // sample result :
-    //{
-    //  "2015-01-01":{"offset": 123, "steps": 456},
-    //  "2015-01-02":{"offset": 579, "steps": 789}
-    //  ...
-    //}
-    stepcounter.getHistory(
-      function (historyData) {
-        console.log('HISTORY!')
-        success(historyData);
-      },
-      failure
-    );
-  })
+
 })
+})
+
 
 
 
