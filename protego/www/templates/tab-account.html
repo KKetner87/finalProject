@@ -98,24 +98,33 @@
 
    <div class="list list-inset">
      <label class="item item-input">
-       <input type="text" placeholder="Contact 1 Name" >
+       <input type="text" placeholder="Contact 1 Name" ng-model="user.emergency[0].name" >
      </label>
      <label class="item item-input">
-       <input type="text" placeholder="Contact 1 Number">
-     </label>
-     <hr>
-     <label class="item item-input">
-       <input type="text" placeholder="Contact 2 Name" >
+       <input type="text" placeholder="Contact 1 Number" ng-model="user.emergency[0].phone">
      </label>
      <label class="item item-input">
-       <input type="text" placeholder="Contact 2 Number">
+       <input type="text" placeholder="Contact 1 Relation" ng-model="user.emergency[0].relation">
      </label>
      <hr>
      <label class="item item-input">
-       <input type="text" placeholder="Contact 3 Name" >
+       <input type="text" placeholder="Contact 2 Name" ng-model="user.emergency[1].name">
      </label>
      <label class="item item-input">
-       <input type="text" placeholder="Contact 3 Number">
+       <input type="text" placeholder="Contact 2 Number" ng-model="user.emergency[1].phone">
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 2 Relation" ng-model="user.emergency[1].relation">
+     </label>
+     <hr>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 3 Name" ng-model="user.emergency[2].name">
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 3 Number" ng-model="user.emergency[2].phone">
+     </label>
+     <label class="item item-input">
+       <input type="text" placeholder="Contact 3 Relation" ng-model="user.emergency[2].relation">
      </label>
      <hr>
    </div>
@@ -128,7 +137,7 @@
 
 <!-- user log out or save changes -->
 
-  <button>Save Changes</button>
+  <button ng-click="saveContacts()">Save Changes</button>
   <button ng-click="logout()">Logout</button>
 
 

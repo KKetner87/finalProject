@@ -38,4 +38,11 @@ module.exports = (app) => {
       res.redirect('/auth.html');
   });
 
+  app.post('/api/users/:id', (req,res) =>{
+
+    User.update({_id: req.params.id}, req.body, (err, up) =>{
+      res.send(up)
+    })
+  })
+
 }

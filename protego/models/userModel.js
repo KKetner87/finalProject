@@ -13,7 +13,14 @@ var UserSchema = new mongoose.Schema({
     created: {
         type: Number,
         default: () => Date.now()
-    }
+    },
+  emergency : [
+    {
+      name: String,
+      phone: String,
+      relation: String,
+  }
+]
 
 });
 
@@ -21,6 +28,10 @@ var UserSchema = new mongoose.Schema({
 // hash passwords before saving a new user
 UserSchema.pre('save', function (next) { // don't use an arrow function here, we need the scope!
     var user = this; // this is why we can't use an arrow function  here, again we need the scope
+
+    // emergency contacts
+
+
 
     // only hash the password if it has been modified (for updating users)
     if (!user.isModified('password')) {

@@ -42,4 +42,5 @@
   </platform>
   <allow-navigation href="http://10.25.15.46:8100"/>
   <allow-navigation href="http://10.25.15.49:8100"/>
+  <allow-navigation href="http://10.25.15.43:8100"/>
 </widget>

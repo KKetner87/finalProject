@@ -44,7 +44,7 @@ $httpProvider.defaults.withCredentials =true;
     views: {
       'tab-nav': {
         templateUrl: 'templates/tab-nav.html',
-        controller: 'HomeCtrl'
+        // controller: 'HomeCtrl'
       }
     }
   })
@@ -54,7 +54,7 @@ $httpProvider.defaults.withCredentials =true;
       views: {
         'tab-home': {
           templateUrl: 'templates/tab-home.html',
-          controller: 'HomeCtrl'
+          // controller: 'HomeCtrl'
         }
       }
     })
@@ -64,7 +64,7 @@ $httpProvider.defaults.withCredentials =true;
       views: {
         'tab-panic': {
           templateUrl: 'templates/tab-panic.html',
-          controller: 'PanicCtrl'
+          // controller: 'HomeCtrl'
         }
       }
     })
