@@ -2,7 +2,7 @@ angular.module('starter.controllers', ['ionic.native' ,'ngMap'])
 
 
 
-.controller('HomeCtrl', function($scope, $cordovaGeolocation, $interval, $cordovaVibration) {
+.controller('HomeCtrl', function($scope, $cordovaGeolocation, $interval, $cordovaVibration, $ionicPlatform, $timeout, $cordovaNativeAudio, $http) {
 
 
 $scope.polyLine =[];
@@ -11,6 +11,10 @@ $scope.polyLine =[];
 $scope.onSuccess = function(location) {
   $scope.polyLine.push(location.latLng)
   // console.log($scope.polyLine);
+
+$scope.crimeLat =location.latLng.lat;
+$scope.crimeLon =location.latLng.lng;
+$scope.crimeData();
 
 
   $scope.locationInfo = ["Current location:\n",
@@ -59,6 +63,9 @@ $scope.map.animateCamera({
 
 // step-counter
   document.addEventListener('deviceready', function () {
+
+    plugins.NativeAudio.preloadComplex('siren', 'sounds/siren.mp3', 1, 0, 0, ()=>{console.log('PRELOAD')}, (err)=>{console.log('NO PRELOAD', err);})
+
     console.log('Device is ready!', document.getElementById('map'));
     // setTimeout(function(){
     $scope.makeMap = function(){
@@ -136,9 +143,13 @@ $scope.trackToggle = function(){
 
 $scope.help = function (){
 
+  $scope.sirenSound()
+
+  // will vibrate the user's phone on button push
   $cordovaVibration.vibrate([1000,1000,1000]);
 
 
+// will send out sms messages to emergency contacts
         $scope.smsSuccess = function (hasPermission) {
           console.log('perm', $scope.user);
             if (hasPermission) {
@@ -146,7 +157,7 @@ $scope.help = function (){
               for(var key in $scope.user.emergency){
                 console.log($scope.polyLine);
                 var contact = $scope.user.emergency[key]
-                sms.send(contact.phone, `${$scope.user.firstname} needs help immediately! They are at  - http://maps.google.com/maps?z=12&t=m&q=loc:${$scope.polyLine[$scope.polyLine.length - 1].lat}+${$scope.polyLine[$scope.polyLine.length - 1].lng}`, {
+                sms.send(contact.phone, `${$scope.user.firstname} was on a run and needs help immediately! They are at this location - http://maps.google.com/maps?z=12&t=m&q=loc:${$scope.polyLine[$scope.polyLine.length - 1].lat}+${$scope.polyLine[$scope.polyLine.length - 1].lng}`, {
                   replaceLineBreaks: false, // true to replace \n by a new line, false by default
                   android: {
                       intent: ''  // send SMS with the native android SMS messaging
@@ -158,17 +169,54 @@ $scope.help = function (){
             }
             else {
               alert("Message could not be sent!");
-                // show a helpful message to explain why you need to require the permission to send a SMS
-                // read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
             }
         };
         var error = function (e) { alert('Something went wrong:' + e); };
         sms.hasPermission($scope.smsSuccess);
     }
 
-})
 
-// })
+    // will play alarm sound using the native audio plugin
+    $scope.sirenSound = function () {
+      console.log('SIREN');
+      // $ionicPlatform.ready(function() {
+
+
+        // all calls to $cordovaNativeAudio return promises
+
+          // .then(()=>{
+          //   plugins.NativeAudio.play('siren');
+          //   console.log('PLYAING');
+          // })
+          // plugins.NativeAudio.play('siren');
+
+    // })
+  }
+
+  // crimedata
+  $scope.crimeData = function () {
+
+
+    $http({
+      method: 'GET',
+      url: "http://10.25.15.32:3000/crimestuff",
+      params: {
+        lat: $scope.crimeLat,
+        lon: $scope.crimeLon,
+      }
+
+    }).then (function(response){
+    //   $scope.user = response.data;
+    //   localStorage.setItem('user', JSON.stringify(response.data))
+    console.log(response.data);
+    })
+  }
+
+
+
+
+// ending bracket
+})
 
 
 

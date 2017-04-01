@@ -1,11 +1,22 @@
 <ion-view>
   <ion-content>
-      <div id="map" style ="height: 400px" ng-init="makeMap()" ng-click="makeMarker()">
-      </div>
+    <div id="map" style ="height: 400px" ng-init="makeMap()" ng-click="makeMarker()">
+    </div>
+    <br>
 
-<br>
+<div class="navText">
 
-<ion-toggle ng-model="tracking" ng-change="trackToggle()">Enable Tracking</ion-toggle>
+    <p class="text-center"><b class="bolded">Start tracking your steps and GPS location by enabling your tracking below.</b></p>
+    <br>
+
+    <P class="icon ion-location"> You can tap your gps marker to get directions via googleMaps.</p>
+    <P class="icon ion-ios-copy"> You can tap the 'heat layer' on the map to find current crime statistics.</p>
+
+</div>
+
+    <ion-toggle ng-model="tracking" ng-change="trackToggle()">Enable Tracking</ion-toggle>
+
+
 
   </ion-content>
 </ion-view>

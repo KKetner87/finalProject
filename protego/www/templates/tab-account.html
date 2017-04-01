@@ -5,10 +5,9 @@
 
 <div class="accountForm" ng-hide="user">
   <h3 class=" text-center profileGreet">You Deserve to Feel Safe</h3>
-  <br>
-    <p class="profileGreet text-center"><b class="bolded"> New to Protego? Let's Create Your Account!</b></p>
 
-    <div class="list list-inset">
+  <div class="list list-inset">
+    <p class="profileGreet text-center"><b class="bolded"> New to Protego? Let's Create Your Account!</b></p>
       <label class="item item-input">
         <input type="text" placeholder="First Name" ng-model ="data.newfirstname">
       </label>
@@ -34,9 +33,7 @@
 </div>
 
 <div class="accountForm" ng-hide="user">
- <br>
     <p class="text-center"><b class="bolded"> Already a Member? Sign In Here: </b></p>
-
     <div class="list list-inset">
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model ="data.username">
@@ -84,7 +81,7 @@
 <br>
 <p><b class="bolded">Daily Distance:</b></p>
 <p>You tracked {{trackHistory}} steps on your run today!</p>
-<p aria-valueNow="{{history}}" aria-minValue="0"> Your step-total today is {{history}} steps!</p>
+<p> Your total today is {{history}} steps!</p>
 
 
 <hr>
@@ -137,8 +134,8 @@
 
 <!-- user log out or save changes -->
 
-  <button ng-click="saveContacts()">Save Changes</button>
-  <button ng-click="logout()">Logout</button>
+  <button class="saveBtn"ng-click="saveContacts()">Save Changes</button>
+  <button class"logoutBtn"ng-click="logout()">Logout</button>
 
 
   </ion-card-content>

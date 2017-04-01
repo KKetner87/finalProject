@@ -50,7 +50,7 @@
 .profileGreet {
   font-family: 'Berkshire Swash', cursive;
   font-size: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .sectionHeader{
@@ -58,4 +58,35 @@
   font-size: 22px;
 }
 
+.logoutBtn {
+  background-color: #2abcca;
+  font-family: 'Rokkitt', serif;
+  font-size: 18px;
+}
+
+.saveBtn {
+background-color: #2abcca;
+font-family: 'Rokkitt', serif;
+font-size: 18px;
+}
+
 /*Nav Tab*/
+.navText {
+  margin:15px;
+}
+
+
+/*Panic Tab*/
+.panicStyle {
+  margin: 15px;
+  padding: 15px;
+}
+
+.panicButton {
+ width: 300px;
+ height: 200px;
+ border-radius: 12px;
+ font-size: 80px;
+ /*font-family: 'Permanent Marker', cursive;*/
+ font-family: 'Paytone One', sans-serif;
+}

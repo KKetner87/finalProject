@@ -1,5 +1,6 @@
 var UserController = require('./controllers/userController');
 var User = require('./models/userModel')
+var spotcrime =require('spotcrime')
 module.exports = (app) => {
 
   // middleware function!
@@ -43,6 +44,26 @@ module.exports = (app) => {
     User.update({_id: req.params.id}, req.body, (err, up) =>{
       res.send(up)
     })
+  })
+
+
+  // crime data
+  app.get('/crimestuff', (req, res)=>{
+    res.query
+
+    var loc = {
+      lat: req.query.lat,
+      lon: req.query.lon
+    };
+
+    var radius = 0.1; // this is miles
+
+    spotcrime.getCrimes(loc, radius, function(err, crimes){
+      console.log("crimes", crimes);
+      res.send(crimes);
+
+    });
+
   })
 
 }
