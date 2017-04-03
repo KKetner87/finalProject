@@ -233,25 +233,24 @@ $scope.help = function (){
       //   localStorage.setItem('user', JSON.stringify(response.data))
       console.log(response.data);
 
-      $scope.crimeMsg = ["Assault Reported Here"];
 
-      $scope.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvu4DLlyZEuT91B4nf9EIyb6ykkxAw8bLzqD7KENR6JFML-tYA';
+      $scope.image = 'https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Burglar-32.png';
 
       $scope.assaultCrimes= function(query){
-      return response.type = 'Assault';
+      return query.type == 'Assault';
     }
+      response.data = response.data.filter($scope.assaultCrimes);
 
-      response.filter($scope.assaultCrimes);
+      for (var i =0; i < response.data.length; i++){
 
-      for (var i =0; i < response.length; i++){
 
         $scope.map.addMarker({
-       position: response[i],
-            lat: $scope.crimeLat,
-            lon: $scope.crimeLon,
+       position: {
+            lat: response.data[i].lat,
+            lng: response.data[i].lon,
+          },
           map: $scope.map,
           icon: $scope.image,
-          'title': $scope.crimeMsg
         }, function(marker) {
           $scope.crimeOnMap = marker
           marker.showInfoWindow();
