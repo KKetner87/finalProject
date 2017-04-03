@@ -68,7 +68,7 @@
 
   <ion-card-content>
   <!-- user personal information -->
-<h5 class="sectionHeader">Personal Information:</h5>
+<h5 class="sectionHeader">Your Personal Information:</h5>
 <br>
     <p><b class="bolded"> First Name:</b>  {{user.firstname}} </p>
     <p><b class="bolded"> Last Name:</b>  {{user.lastname}} </p>
@@ -87,13 +87,13 @@
 <hr>
 
 
-
 <!-- user emergency contacts info  -->
 
-<h5 class="sectionHeader">Emergency Contacts:</h5>
+<h5 class="sectionHeader">Your Emergency Contacts:</h5>
 <br>
 
    <div class="list list-inset">
+     <p><b class="bolded">Contact 1:</b></p>
      <label class="item item-input">
        <input type="text" placeholder="Contact 1 Name" ng-model="user.emergency[0].name" >
      </label>
@@ -104,6 +104,7 @@
        <input type="text" placeholder="Contact 1 Relation" ng-model="user.emergency[0].relation">
      </label>
      <hr>
+     <p><b class="bolded">Contact 2:</b></p>
      <label class="item item-input">
        <input type="text" placeholder="Contact 2 Name" ng-model="user.emergency[1].name">
      </label>
@@ -114,6 +115,7 @@
        <input type="text" placeholder="Contact 2 Relation" ng-model="user.emergency[1].relation">
      </label>
      <hr>
+     <p><b class="bolded">Contact 3:</b></p>
      <label class="item item-input">
        <input type="text" placeholder="Contact 3 Name" ng-model="user.emergency[2].name">
      </label>
@@ -133,9 +135,9 @@
 
 
 <!-- user log out or save changes -->
+  <button style="background-color: #2abcca; font-family: 'Rokkitt', serif; font-size: 18px; margin-left: 15%"class="button button-calm" ng-click="saveContacts()"><b>Save Changes</b></button>
 
-  <button class="saveBtn"ng-click="saveContacts()">Save Changes</button>
-  <button class"logoutBtn"ng-click="logout()">Logout</button>
+  <button style="font-family: 'Rokkitt', serif; font-size: 18px" class="button button-energized" ng-click="logout()"><b>Logout</b></button>
 
 
   </ion-card-content>

@@ -58,21 +58,17 @@
   font-size: 22px;
 }
 
-.logoutBtn {
-  background-color: #2abcca;
-  font-family: 'Rokkitt', serif;
-  font-size: 18px;
-}
-
-.saveBtn {
-background-color: #2abcca;
-font-family: 'Rokkitt', serif;
-font-size: 18px;
-}
-
 /*Nav Tab*/
 .navText {
   margin:15px;
+}
+
+.current {
+  color: red;
+}
+
+.crime {
+  color: #46d2ff;
 }
 
 

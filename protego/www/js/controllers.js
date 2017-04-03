@@ -10,11 +10,34 @@ $scope.polyLine =[];
 //cordova gps location
 $scope.onSuccess = function(location) {
   $scope.polyLine.push(location.latLng)
-  // console.log($scope.polyLine);
 
-$scope.crimeLat =location.latLng.lat;
-$scope.crimeLon =location.latLng.lng;
+  $scope.crimeLat =location.latLng.lat;
+  $scope.crimeLon =location.latLng.lng;
+
+//crimedata markers on map
+$scope.crimeLatLon = ()=>{
+  return {
+    lat : $scope.crimeLat,
+    lng : $scope.crimeLon
+  }
+};
 $scope.crimeData();
+
+$scope.crimeMsg = ["Crime Data"];
+
+$scope.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvu4DLlyZEuT91B4nf9EIyb6ykkxAw8bLzqD7KENR6JFML-tYA';
+
+
+// $scope.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvu4DLlyZEuT91B4nf9EIyb6ykkxAw8bLzqD7KENR6JFML-tYA';
+//  $scope.crimeIcon =$scope.map.addMarker({
+//     position:$scope.crimeLatLon(),
+//     map: $scope.map,
+//     icon: $scope.image,
+//    'title': $scope.crimeMsg
+//   }, function(marker) {
+//     $scope.crimeOnMap = marker
+//     marker.showInfoWindow();
+//   });
 
 
   $scope.locationInfo = ["Current location:\n",
@@ -23,7 +46,7 @@ $scope.crimeData();
     "speed:" + location.speed,
     "time:" + location.time].join("\n");
 
-    $scope.startMsg = ["You Are Here"]
+    $scope.startMsg = ["You Are Here"];
 
     // polyline on map
   if($scope.polyOnMap){
@@ -199,16 +222,43 @@ $scope.help = function (){
 
     $http({
       method: 'GET',
-      url: "http://10.25.15.32:3000/crimestuff",
+      url: "http://10.25.15.47:3000/crimestuff",
       params: {
         lat: $scope.crimeLat,
         lon: $scope.crimeLon,
       }
 
     }).then (function(response){
-    //   $scope.user = response.data;
-    //   localStorage.setItem('user', JSON.stringify(response.data))
-    console.log(response.data);
+      //   $scope.user = response.data;
+      //   localStorage.setItem('user', JSON.stringify(response.data))
+      console.log(response.data);
+
+      $scope.crimeMsg = ["Assault Reported Here"];
+
+      $scope.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvu4DLlyZEuT91B4nf9EIyb6ykkxAw8bLzqD7KENR6JFML-tYA';
+
+      $scope.assaultCrimes= function(query){
+      return response.type = 'assault';
+    }
+
+      response.filter($scope.assaultCrimes);
+
+      for (var i =0; i < response.length; i++){
+
+        $scope.map.addMarker({
+       position: response[i],
+            lat: $scope.crimeLat,
+            lon: $scope.crimeLon,
+          map: $scope.map,
+          icon: $scope.image,
+          'title': $scope.crimeMsg
+        }, function(marker) {
+          $scope.crimeOnMap = marker
+          marker.showInfoWindow();
+        });
+
+      }
+
     })
   }
 

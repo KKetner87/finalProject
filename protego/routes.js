@@ -56,7 +56,7 @@ module.exports = (app) => {
       lon: req.query.lon
     };
 
-    var radius = 0.1; // this is miles
+    var radius = 10; // this is miles
 
     spotcrime.getCrimes(loc, radius, function(err, crimes){
       console.log("crimes", crimes);
