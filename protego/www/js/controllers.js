@@ -222,7 +222,7 @@ $scope.help = function (){
 
     $http({
       method: 'GET',
-      url: "http://10.25.15.47:3000/crimestuff",
+      url: "http://138.68.231.253:3000/crimestuff",
       params: {
         lat: $scope.crimeLat,
         lon: $scope.crimeLon,
@@ -238,7 +238,7 @@ $scope.help = function (){
       $scope.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvu4DLlyZEuT91B4nf9EIyb6ykkxAw8bLzqD7KENR6JFML-tYA';
 
       $scope.assaultCrimes= function(query){
-      return response.type = 'assault';
+      return response.type = 'Assault';
     }
 
       response.filter($scope.assaultCrimes);

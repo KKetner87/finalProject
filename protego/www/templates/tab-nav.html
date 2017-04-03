@@ -1,23 +1,26 @@
 <ion-view>
   <ion-content>
-    <div id="map" style ="height: 400px" ng-init="makeMap()" ng-click="makeMarker()">
-    </div>
-    <br>
 
-<div class="navText">
+    <div class="navText">
 
-    <p class="text-center"><b class="bolded">Start tracking your steps and GPS location by enabling your tracking below.</b></p>
-    <br>
+      <h3 class="text-center" style="margin-bottom:30px">Run Without Fear</h3>
 
-    <P><i class="icon ion-location current"></i> To get directions, tap on your red "current location" marker.</p>
+      <p class="text-center"><b class="bolded">To get started, enable your tracking below. This will find your location, track your route, log your steps and show the latest assaults reported.</b></p>
+      <br>
 
-    <P><i class="icon ion-location crime"></i> The blue markers show the recent crimes reported in your area.</p>
+      <P><i class="icon ion-location current"></i> Tap on your red "current location" marker to get directions via googleMaps.</p>
 
-</div>
+        <P><i class="icon ion-location crime"></i> The blue markers indicate the most recent assaults in a 10 mile radius of your location.</p>
 
-    <ion-toggle ng-model="tracking" ng-change="trackToggle()">Enable Tracking</ion-toggle>
+        </div>
+        <ion-toggle ng-model="tracking" ng-change="trackToggle()">Enable Tracking</ion-toggle>
 
 
+        <br>
+        <div id="map" style ="height: 400px; margin-bottom: 20px" ng-init="makeMap()" ng-click="makeMarker()">
+        </div>
+        <br>
 
-  </ion-content>
-</ion-view>
+
+      </ion-content>
+    </ion-view>
