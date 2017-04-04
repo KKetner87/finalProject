@@ -177,17 +177,22 @@ $scope.help = function (){
           console.log('perm', $scope.user);
             if (hasPermission) {
               console.log('You got permish');
-              for(var key in $scope.user.emergency){
-                console.log($scope.polyLine);
-                var contact = $scope.user.emergency[key]
-                sms.send(contact.phone, `${$scope.user.firstname} was on a run and needs help immediately! They are at this location - http://maps.google.com/maps?z=12&t=m&q=loc:${$scope.polyLine[$scope.polyLine.length - 1].lat}+${$scope.polyLine[$scope.polyLine.length - 1].lng}`, {
-                  replaceLineBreaks: false, // true to replace \n by a new line, false by default
-                  android: {
-                      intent: ''  // send SMS with the native android SMS messaging
-                      //intent: '' // send SMS without open any other app
-                  }
-                });
+              $scope.map.getMyLocation(function(location){
+                var lastKnown = location.latLng;
+                for(var key in $scope.user.emergency){
+
+                  var contact = $scope.user.emergency[key]
+
+                  sms.send(contact.phone, `${$scope.user.firstname} was on a run and needs help immediately! They are at this location - http://maps.google.com/maps?z=12&t=m&q=loc:${lastKnown.lat}+${lastKnown.lng}`, {
+                    replaceLineBreaks: false, // true to replace \n by a new line, false by default
+                    android: {
+                        intent: ''  // send SMS with the native android SMS messaging
+                        //intent: '' // send SMS without open any other app
+                    }
+
+                  });
               }
+            })
 
             }
             else {
@@ -204,16 +209,8 @@ $scope.help = function (){
       console.log('SIREN');
       // $ionicPlatform.ready(function() {
 
-
-        // all calls to $cordovaNativeAudio return promises
-
-          // .then(()=>{
-          //   plugins.NativeAudio.play('siren');
-          //   console.log('PLYAING');
-          // })
-          // plugins.NativeAudio.play('siren');
-
-    // })
+      var sound = new Media('/android_asset/www/sounds/siren.mp3')
+      sound.play()
   }
 
   // crimedata
