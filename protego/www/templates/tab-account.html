@@ -22,7 +22,7 @@
       </label>
     </div>
     <br>
-    <button class="button button-block  button-energized" ng-click="register()">
+    <button id="btn" class="button button-block " ng-click="register()">
 
     <b class="bolded">
       Create My Account
@@ -43,7 +43,7 @@
       </label>
     </div>
    <br>
-  <button class="button button-block button-energized" ng-click="login()">
+  <button id="btn" class="button button-block" ng-click="login()">
   <b class="bolded">
     Login Now
   </b>
@@ -80,8 +80,8 @@
 <h5 class="sectionHeader">Track Your Fitness:</h5>
 <br>
 <p><b class="bolded">Daily Distance:</b></p>
-<p><i class="ion-checkmark-circled" style ="color: #2abcca"></i>  You tracked {{trackHistory}} steps on your run today!</p>
-<p><i class="ion-checkmark-circled" style ="color: #2abcca"></i>  Your total today is {{history}} steps!</p>
+<p><i class="ion-checkmark-circled check"></i>  You tracked {{trackHistory}} steps on your run today!</p>
+<p><i class="ion-checkmark-circled check"></i>  Your total today is {{history}} steps!</p>
 
 
 <hr>
@@ -90,7 +90,7 @@
 <!--Embed self defense videos  -->
 <h5 class="sectionHeader">Learn Basic Self-Defense Skills:</h5>
 <br>
-<p><b class="bolded">Remember that self defense works! Studies show that fighting back correlates with
+<p><b class="bolded">Remember - self defense works! Studies show that fighting back correlates with
   reduced rates of rape and does not correspond with higher rates of physical injury. With practice, you will
   have more confidence knowing where and how to strike if you need to defend yourself.</b></p>
   <br>
@@ -126,7 +126,7 @@
 
 <!-- user emergency contacts info  -->
 
-<h5 class="sectionHeader">Set Your Emergency Contacts:</h5>
+<h5 class="sectionHeader">Add Your Emergency Contacts:</h5>
 <br>
 
    <div class="list list-inset">
@@ -172,9 +172,9 @@
 
 
 <!-- user log out or save changes -->
-  <button style="background-color: #2abcca; font-family: 'Rokkitt', serif; font-size: 18px; margin-left: 15%"class="button button-calm" ng-click="saveContacts()"><b>Save Changes</b></button>
+  <button id="save"class="button" ng-click="saveContacts()"><b>Save Changes</b></button>
 
-  <button style="font-family: 'Rokkitt', serif; font-size: 18px" class="button button-energized" ng-click="logout()"><b>Logout</b></button>
+  <button id ="btn" class="button" ng-click="logout()"><b>Logout</b></button>
 
 
   </ion-card-content>

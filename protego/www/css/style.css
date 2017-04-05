@@ -1,7 +1,9 @@
 /*Tab Styling*/
 
 .ion-android-alert {
-  color: red;
+  color:  #e52d27;
+  color: -webkit-linear-gradient(to top, #b31217, #e52d27);
+  color: linear-gradient(to top, #b31217, #e52d27);
 }
 
 ion-nav-view {
@@ -38,6 +40,18 @@ ion-nav-view {
   margin: 15px;
 }
 
+#btn {
+  color:white;
+  background: #f46b45;
+  background: -webkit-linear-gradient(to top, #f46b45, #eea849);
+  background: linear-gradient(to top, #f46b45, #eea849);
+  font-family: 'Rokkitt', serif;
+  font-size: 18px;
+  box-shadow: 0px 10px 14px -8px black;
+  text-shadow: 0.9px 0px black;
+  border: 0px;
+}
+
 
 /*Account Tab*/
 
@@ -64,6 +78,25 @@ ion-nav-view {
   font-size: 22px;
 }
 
+.check {
+  color: #4776E6;
+  color: -webkit-linear-gradient(to bottom, #8E54E9, #4776E6);
+  color: linear-gradient(to bottom, #8E54E9, #4776E6);
+}
+
+#save{
+  color: white;
+  background: #4776E6;
+  background: -webkit-linear-gradient(to bottom, #4776E6, #8E54E9);
+  background: linear-gradient(to bottom, #4776E6, #8E54E9);
+  font-family: 'Rokkitt', serif;
+  font-size: 18px; margin-left: 15%;
+  box-shadow: 0px 10px 14px -8px black;
+  text-shadow: 0.9px 0px black;
+  border: 0px;
+}
+
+
 /*Nav Tab*/
 .navText {
   margin:20px;
@@ -74,7 +107,7 @@ ion-nav-view {
 }
 
 .crime {
-  color: #2abcca;
+  color: #4776E6;
 }
 
 
@@ -85,10 +118,17 @@ ion-nav-view {
 }
 
 .panicButton {
- width: 300px;
- height: 200px;
- border-radius: 12px;
- font-size: 80px;
- /*font-family: 'Permanent Marker', cursive;*/
- font-family: 'Paytone One', sans-serif;
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
+  font-size: 80px;
+  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Paytone One', sans-serif;
+  background: #e52d27;
+  background: -webkit-linear-gradient(to top, #b31217, #e52d27);
+  background: linear-gradient(to top, #b31217, #e52d27);
+  color: white;
+  box-shadow: 0px 10px 14px -8px black;
+  text-shadow: 2px 0px #2F4F4F;
+  border: 0px;
 }
