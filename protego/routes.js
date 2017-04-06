@@ -59,7 +59,7 @@ module.exports = (app) => {
     var radius = 20; // this is miles
 
     spotcrime.getCrimes(loc, radius, function(err, crimes){
-      console.log("crimes", crimes);
+      console.log("crimes", err, crimes);
       res.send(crimes);
 
     });
