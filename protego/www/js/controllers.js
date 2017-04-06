@@ -236,6 +236,7 @@ $scope.help = function (){
       $scope.assaultCrimes= function(query){
       return query.type == 'Assault';
     }
+    if(response.data){
       response.data = response.data.filter($scope.assaultCrimes);
 
       for (var i =0; i < response.data.length; i++){
@@ -254,7 +255,7 @@ $scope.help = function (){
         });
 
       }
-
+    }
     })
   }
 
